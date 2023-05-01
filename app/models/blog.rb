@@ -16,7 +16,10 @@ class Blog < ApplicationRecord
         GROUP BY c.blog_id
       ) comment_counts ON comment_counts.blog_id = blogs.id
     SQL
-    joins(sql).order("comment_counts.cnt DESC")
+
+    joins(sql)
+      .order("comment_counts.cnt DESC")
+      .select("blogs.*, COALESCE(comment_counts.cnt, 0) AS comment_count")
   end
 
   scope :created_today, -> { where(created_at: Date.current.all_day) }

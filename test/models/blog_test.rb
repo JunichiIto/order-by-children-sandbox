@@ -19,6 +19,9 @@ class BlogTest < ActiveSupport::TestCase
     blogs = Blog.order_by_comment_count
     assert_equal [blog_with_three_comments, blog_with_two_comments, blog_with_one_comment, blog_without_comments], blogs
 
+    blogs = Blog.order_by_comment_count
+    assert_equal [3, 2, 1, 0], blogs.map(&:comment_count)
+
     # 他のscopeと組み合わせる
     blog_with_three_comments.update!(created_at: 1.day.ago)
     blogs = Blog.order_by_comment_count.created_today
