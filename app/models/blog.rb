@@ -1,6 +1,13 @@
 class Blog < ApplicationRecord
   has_many :comments
 
+  # この方法だと、以下のような問題点がある
+  # - 他のscopeと連結できない
+  # - 関連するcommentsをインスタンス化するので、件数が多いとパフォーマンスやメモリ効率が悪い
+  # scope :order_by_comment_count, -> do
+  #   includes(:comments).sort_by { |blog| blog.comments.size }.reverse
+  # end
+
   scope :order_by_comment_count, -> do
     sql = <<~SQL
       LEFT OUTER JOIN (
