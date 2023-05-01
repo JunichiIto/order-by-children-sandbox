@@ -1,24 +1,7 @@
-# README
+# order-by-children-sandbox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample app for [【Rails】ブログに付いたコメントの件数順にブログを並び替える方法 \- Qiita](https://qiita.com/jnchito/items/1062600a7177f95b451b).
 
-Things you may want to cover:
+## License
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MIT License.
