@@ -11,4 +11,6 @@ class Blog < ApplicationRecord
     SQL
     joins(sql).order("comment_counts.cnt DESC")
   end
+
+  scope :created_today, -> { where(created_at: Date.current.all_day) }
 end
